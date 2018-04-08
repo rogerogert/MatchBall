@@ -30,6 +30,9 @@ namespace MatchBallApp
             });
 
             services.AddTransient<MatchBallSeeder>();
+
+            services.AddScoped<IMatchBallRepository, MatchBallRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
