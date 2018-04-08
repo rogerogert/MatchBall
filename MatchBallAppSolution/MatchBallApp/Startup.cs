@@ -28,6 +28,8 @@ namespace MatchBallApp
             {
                 cfg.UseSqlServer(_config.GetConnectionString("MatchBallConnectionString"));
             });
+
+            services.AddTransient<MatchBallSeeder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +38,14 @@ namespace MatchBallApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Seed the database
+                using(var scope = app.ApplicationServices.CreateScope())
+                {
+                    var seeder = scope.ServiceProvider.GetService<MatchBallSeeder>();
+                    seeder.Seed();
+                }
+
             }
 
             app.Run(async (context) =>
