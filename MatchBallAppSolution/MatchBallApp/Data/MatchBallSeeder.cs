@@ -27,8 +27,7 @@ namespace MatchBallApp.Data
                     Category = "Bebida",
                     Code = "COCA",
                     Description = "Coca Cola Lata 350ml",
-                    Price = 3.50m,
-                    Id = 1
+                    Price = 3.50m
                 };
                 var order = new Order()
                 {

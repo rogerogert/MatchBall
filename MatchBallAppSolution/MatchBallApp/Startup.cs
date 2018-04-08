@@ -33,6 +33,8 @@ namespace MatchBallApp
 
             services.AddScoped<IMatchBallRepository, MatchBallRepository>();
 
+            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,10 +52,11 @@ namespace MatchBallApp
                 }
 
             }
-
-            app.Run(async (context) =>
+            app.UseMvc(cfg =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                cfg.MapRoute("Default",
+                    "{controller}/{action}/{id?}",
+                    new { controller = "Products", Action = "Index" });
             });
         }
     }
