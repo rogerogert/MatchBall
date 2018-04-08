@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "MatchBallConnectionString": "Data Source=(localdb)\\MSSQLLocalDB;Database=MatchBallDB;Integrated Security=True;MultipleActiveResultSets=true;"
+  }
+}

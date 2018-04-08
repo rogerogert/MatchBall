@@ -10,6 +10,9 @@ namespace MatchBallApp.Data
 {
     public class MatchBallContext: DbContext
     {
+        public MatchBallContext(DbContextOptions<MatchBallContext> options):base(options)
+        {
+        }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
     }
